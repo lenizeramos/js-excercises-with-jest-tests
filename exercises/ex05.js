@@ -19,8 +19,24 @@ Use some sort of looping. Do Not use String.prototype.replace
 */
 
 const urlEncode = function (text) {
-  // Put your solution here
+  //replace all whitespace with %20
+  let textEncoded = "";
+  text = text.trim();
+
+  for (let word of text) {
+    if (word === " ") {
+      textEncoded += "%20";
+    } else {
+      textEncoded += word
+    }
+  }
+  return textEncoded;
 };
+
+/*
+  Time Complexity: O(n)
+  Space Complexity: O(n)
+*/
 
 console.log(urlEncode("cornerstone college")); //cornerstone%20college
 console.log(urlEncode(" cornerstone college ")); //cornerstone%20college
