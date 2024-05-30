@@ -9,31 +9,31 @@ Not sure where to get started? It might be useful to start by creating a variabl
 */
 
 const checkAir = function (samples, threshold) {
-  // Code here!
+  // a threshold of 0.4 means that there must be less than 40% of total samples classified as dirty for our air to be considered clean.
+  // threshold == 0.4 means dirty < 0.4*samples.length == clean
+  let dirty = 0;
+  // console.log(samples.length);
+  for (let i = 0; i < samples.length; i++) {
+    if (samples[i] === "dirty") {
+      dirty++; // dirty = dirty + 1;
+    }
+  }
+  if (dirty < threshold * samples.length) {
+    return "Clean";
+  }
+  // console.log(dirty);
+  return "Polluted";
 };
 
-console.log(
-  checkAir(
-    [
-      "clean",
-      "clean",
-      "dirty",
-      "clean",
-      "dirty",
-      "clean",
-      "clean",
-      "dirty",
-      "clean",
-      "dirty",
-    ],
-    0.3
-  )
-); // Polluted
+/*
+  Time Complexity: O(n)
+  Space Complexity: O(1)
+*/
+
+console.log(checkAir(["clean", "clean", "dirty", "clean", "dirty", "clean", "clean", "dirty", "clean", "dirty"], 0.3)); // Polluted
 
 console.log(checkAir(["dirty", "dirty", "dirty", "dirty", "clean"], 0.25)); // Polluted
 
-console.log(
-  checkAir(["clean", "dirty", "clean", "dirty", "clean", "dirty", "clean"], 0.9)
-); // Clean
+console.log(  checkAir(["clean", "dirty", "clean", "dirty", "clean", "dirty", "clean"], 0.9)); // Clean
 
 module.exports = checkAir;
