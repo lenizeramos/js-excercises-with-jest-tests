@@ -1,3 +1,5 @@
+> **Note:** This repository is a personal backup of coursework originally developed as part of my studies at Cornerstone College. It was cloned from a institutional and private repository to preserve my contributions and development history.
+
 # Modern JavaScript Exercises List 1
 
 Welcome to the Modern JavaScript Exercises List 1! In this set of problems, you will practice using ES6+ features such as forEach, filter, reduce, map, and more.
